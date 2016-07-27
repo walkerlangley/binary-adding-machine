@@ -6,8 +6,5 @@
       "modules": true,
       "jsx": true
       }
-  },
-  "env": {
-    "es6": true
   }
 }
