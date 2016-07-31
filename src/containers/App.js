@@ -90,9 +90,6 @@ class App extends Component {
       }
     }
 
-    console.log('NewSum', newSum);
-
-
     this.setState({
       addend2: newState,
       sum: newSum
