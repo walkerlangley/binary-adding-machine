@@ -17,21 +17,18 @@ class Adder extends Component {
       margin: "10px 0px"
     }
 
-    let len = values.length;
+    let len = values.length-1;
     var indents = []
 
     for(i = len; i >= 0; i--) {
       indents.push(
-        <div className="addend1" style={Binary1}>
-          <Bit
-            key={i}
-            value={values[i]}
-            onChange={onChange.bind(this, i)}
-            />
-        </div>
+        <Bit
+          key={i}
+          value={values[i]}
+          onChange={onChange.bind(this, i)}
+          />
       )
     }
-    console.log(indents);
 
     return (
       <div className="addend1" style={Binary1}>
