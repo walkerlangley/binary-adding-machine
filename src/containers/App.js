@@ -10,10 +10,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      addend1: [0,0,0,0,0,0,0],
-      addend2: [0,0,0,0,0,0,0],
+      addend1: [0,0,0,0,0,0,0,0],
+      addend2: [0,0,0,0,0,0,0,0],
       carry: [0],
-      sum: [0,0,0,0,0,0,0],
+      sum: [0,0,0,0,0,0,0,0],
+      base10_1: 0,
+      base10_2: 0,
+      sum10: 0
     }
   }
 
@@ -23,8 +26,12 @@ class App extends Component {
     let newState = this.state.addend1.slice(0,index).concat(val).concat(this.state.addend1.slice(index+1));
     let addend2 = this.state.addend2;
     let newSum=[];
+    let decimal1=0;
+    let binSum=0;
     let i;
     let j;
+    let k;
+    let l;
 
     for(i = addend2.length-1; i>=0; i--) {
       newSum.push(newState[i] + addend2[i])
@@ -50,10 +57,23 @@ class App extends Component {
       }
     }
 
+    console.log('newState', newState);
+    console.log('newSum', newSum);
+
+    for (k = 0; k < newState.length ; k++) {
+      decimal1 += newState[k] * Math.pow(2, k)
+    }
+
+    for (l = 0; l < newSum.length-1; l++) {
+      binSum += newSum[l] * Math.pow(2, l)
+      console.log('binSum', binSum, '\n');
+    }
 
     this.setState({
       addend1: newState,
-      sum: newSum
+      sum: newSum,
+      base10_1: decimal1,
+      sum10: binSum
     });
   }
 
@@ -63,8 +83,13 @@ class App extends Component {
     let newState = this.state.addend2.slice(0,index).concat(val).concat(this.state.addend2.slice(index+1));
     let addend1 = this.state.addend1;
     let newSum = [];
+    let decimal2=0;
+    let binSum=0;
     let i;
     let j;
+    let k;
+    let l;
+
 
     for(i = addend1.length-1; i>=0; i--) {
       newSum.push(newState[i] + addend1[i])
@@ -90,9 +115,19 @@ class App extends Component {
       }
     }
 
+    for (k = 0; k < newState.length ; k++) {
+      decimal2 += newState[k] * Math.pow(2, k)
+    }
+
+    for (l = 0; l < newSum.length-1; l++) {
+      binSum += newSum[l] * Math.pow(2, l)
+    }
+
     this.setState({
       addend2: newState,
-      sum: newSum
+      sum: newSum,
+      base10_2: decimal2,
+      sum10: binSum
     });
   }
 

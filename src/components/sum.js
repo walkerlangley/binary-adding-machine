@@ -7,7 +7,8 @@ class Sum extends Component {
   }
 
   render () {
-    const { addend1, addend2, values } = this.props;
+    const { values } = this.props;
+    let i;
 
     let Binary1 = {
       display: "block",
@@ -15,20 +16,22 @@ class Sum extends Component {
       margin: "10px 0px"
     }
 
+    let len = values.length-1;
+    var indents = []
+
+    for(i = len; i >= 0; i--) {
+      indents.push(
+        <SumBit
+          key={i}
+          value={values[i]}
+          />
+      )
+    }
+
     return(
       <div className="addend1" style={Binary1}>
-        {Object.keys(values).map((key, i) => {
-          const id={key}
-          const value = values[key]
-          return (
-            <SumBit
-              key={i}
-              prop={id}
-              value={value}
-            />
-          )
-        })}
-    </div>
+        {indents}
+      </div>
     )
   }
 }
