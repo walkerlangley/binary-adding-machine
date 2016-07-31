@@ -11,7 +11,6 @@ class Sum extends Component {
 
     let Binary1 = {
       display: "block",
-      border: "3px solid blue",
       textAlign: "center",
       margin: "10px 0px"
     }

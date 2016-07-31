@@ -100,14 +100,18 @@ class App extends Component {
     let addendStyle = {
       display: "block",
       border: "3px solid black",
-      textAlign: "center"
+      textAlign: "center",
+      marginTop: "200px"
     }
 
     let BinaryKeys = {
       display: "block",
-      border: "3px solid red",
       textAlign: "center",
-      margin: "10px 0px"
+      margin: "20px 0px"
+    }
+
+    let sumStyle = {
+      margin: "20px 0px"
     }
 
     const { addend1, addend2, sum } = this.state;
@@ -123,6 +127,9 @@ class App extends Component {
             values={addend2}
             onChange={this.addend2Change.bind(this)}
           />
+      </div>
+        <hr></hr>
+        <div className="Sum" style={sumStyle}>
           <Sum
             addend1={addend1}
             addend2={addend2}
