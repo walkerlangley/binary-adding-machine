@@ -7,13 +7,17 @@ class Adder extends Component {
   }
 
   render () {
-    const { values, onChange } = this.props;
+    const { values, decimalVal, onChange } = this.props;
     let i;
 
     let Binary1 = {
       display: "block",
       textAlign: "center",
       margin: "10px 0px"
+    }
+
+    let decimalValStyle = {
+      display: "inline-block"
     }
 
     let len = values.length-1;
@@ -32,6 +36,9 @@ class Adder extends Component {
     return (
       <div className="addend1" style={Binary1}>
         {indents}
+        <div className="decimalVal_addend1" style={decimalValStyle}>
+          {decimalVal}
+        </div>
       </div>
     )
   }

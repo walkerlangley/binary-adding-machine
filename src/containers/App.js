@@ -150,25 +150,26 @@ class App extends Component {
       margin: "20px 0px"
     }
 
-    const { addend1, addend2, sum } = this.state;
+    const { addend1, addend2, sum, base10_1, base10_2, sum10 } = this.state;
 
     return (
       <div className="Addends" style={addendStyle}>
         <div className="BinaryKeys" style={BinaryKeys}>
           <Addend1
             values={addend1}
+            decimalVal={base10_1}
             onChange={this.addend1Change.bind(this)}
           />
           <Addend2
             values={addend2}
+            decimalVal={base10_2}
             onChange={this.addend2Change.bind(this)}
           />
       </div>
         <hr></hr>
         <div className="Sum" style={sumStyle}>
           <Sum
-            addend1={addend1}
-            addend2={addend2}
+            decimalVal={sum10}
             values={sum}
           />
         </div>
