@@ -8,6 +8,7 @@ class Adder extends Component {
 
   render () {
     const { values, onChange } = this.props;
+    let i;
 
     let Binary1 = {
       display: "block",
@@ -16,21 +17,26 @@ class Adder extends Component {
       margin: "10px 0px"
     }
 
-    return(
-      <div className="addend1" style={Binary1}>
-        {Object.keys(values).map((key, i) => {
-          const id={key}
-          const value = values[key]
-          return (
-            <Bit
-              key={i}
-              prop={id}
-              value={value}
-              onChange={onChange.bind(this, id)}
+    let len = values.length;
+    var indents = []
+
+    for(i = len; i >= 0; i--) {
+      indents.push(
+        <div className="addend1" style={Binary1}>
+          <Bit
+            key={i}
+            value={values[i]}
+            onChange={onChange.bind(this, i)}
             />
-          )
-        })}
-    </div>
+        </div>
+      )
+    }
+    console.log(indents);
+
+    return (
+      <div className="addend1" style={Binary1}>
+        {indents}
+      </div>
     )
   }
 }

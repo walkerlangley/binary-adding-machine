@@ -5,9 +5,9 @@ const Bit = (props) => {
 
   let margin = "";
 
-  if(props.prop.key === 'zero') {
-    margin = "-192px";
-  }
+  // if(props.prop.key === 'zero') {
+  //   margin = "-192px";
+  // }
 
   let binary1Value = {
     display: "inline-block",
