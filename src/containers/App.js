@@ -65,8 +65,10 @@ class App extends Component {
     let nextSum = 0;
     let sumVal = 0;
     let carry = 0;
-    let carryIndex="";
+    let carryIndex='';
     let eightVal = 0;
+    let newState;
+
 
     switch(index.key) {
       case "zero":
@@ -144,21 +146,35 @@ class App extends Component {
       }
     }
 
-    let newState = update(this.state, {
-      addend1:{
-        [index.key]: {$set: val}
-      },
-      carry: {
-        [carryIndex]: {$set: carry}
-      },
-      sum: {
-        [index.key]: {$set: sumVal},
-        [carryIndex]: {$set: nextSum},
-        eight: {$set: eightVal}
-      }
-    })
+    if(carryIndex === '') {
+      newState = update(this.state, {
+        addend1:{
+          [index.key]: {$set: val}
+        },
+        carry: {
+          [carryIndex]: {$set: carry}
+        },
+        sum: {
+          [index.key]: {$set: sumVal},
+          eight: {$set: eightVal}
+        }
+      })
 
-    console.log('NewState', newState);
+    } else {
+      newState = update(this.state, {
+        addend1:{
+          [index.key]: {$set: val}
+        },
+        carry: {
+          [carryIndex]: {$set: carry}
+        },
+        sum: {
+          [index.key]: {$set: sumVal},
+          [carryIndex]: {$set: nextSum},
+          eight: {$set: eightVal}
+        }
+      })
+    }
     this.setState(newState);
   }
 
@@ -176,9 +192,7 @@ class App extends Component {
     let carryIndex="";
     let eightVal = 0;
     let carryVal = 0;
-
-    console.log('CO', co);
-
+    let newState;
 
     switch(index.key) {
       case "zero":
@@ -256,19 +270,34 @@ class App extends Component {
       }
     }
 
-    let newState = update(this.state, {
-      addend2: {
-        [index.key]: {$set: val}
-      },
-      carry: {
-        [carryIndex]: {$set: carry}
-      },
-      sum: {
-        [index.key]: {$set: sumVal},
-        [carryIndex]: {$set: nextSum},
-        eight: {$set: eightVal}
-      }
-    })
+    if(carryIndex === '') {
+      newState = update(this.state, {
+        addend1:{
+          [index.key]: {$set: val}
+        },
+        carry: {
+          [carryIndex]: {$set: carry}
+        },
+        sum: {
+          [index.key]: {$set: sumVal},
+          eight: {$set: eightVal}
+        }
+      })
+    } else {
+      newState = update(this.state, {
+        addend1:{
+          [index.key]: {$set: val}
+        },
+        carry: {
+          [carryIndex]: {$set: carry}
+        },
+        sum: {
+          [index.key]: {$set: sumVal},
+          [carryIndex]: {$set: nextSum},
+          eight: {$set: eightVal}
+        }
+      })
+    }
 
     this.setState(newState);
   }

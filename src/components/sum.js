@@ -16,12 +16,6 @@ class Sum extends Component {
       margin: "10px 0px"
     }
 
-    console.log();
-
-    // let sum0 = parseInt(addend1.zero, 10) + parseInt(addend2.zero, 10);
-
-
-
     return(
       <div className="addend1" style={Binary1}>
         {Object.keys(values).map((key, i) => {

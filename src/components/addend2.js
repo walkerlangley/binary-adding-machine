@@ -6,15 +6,6 @@ class Adder extends Component {
     super(props)
   }
 
-
-  // const arr = [];
-
-  // Object.keys(values).forEach((key) => {
-  //   arr.push(values[key])
-  // });
-  //
-  // const len = arr.length-1
-
   render () {
     const { values, onChange } = this.props;
 
@@ -45,10 +36,3 @@ class Adder extends Component {
 }
 
 export default Adder;
-
-// var myArray = ["a", "b", "c", "d", "e"];
-// var res = myArray.reduceRight(function (arr, last, index, coll) {
-//     console.log(last, index);
-//     return (arr = arr.concat(last))
-// }, []);
-// console.log(res, myArray)

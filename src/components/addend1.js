@@ -36,10 +36,3 @@ class Adder extends Component {
 }
 
 export default Adder;
-
-// var myArray = ["a", "b", "c", "d", "e"];
-// var res = myArray.reduceRight(function (arr, last, index, coll) {
-//     console.log(last, index);
-//     return (arr = arr.concat(last))
-// }, []);
-// console.log(res, myArray)
